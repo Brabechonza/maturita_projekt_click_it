@@ -162,7 +162,7 @@ def hra():
     score_font = pygame.font.SysFont("arialblack", 15)
     score_text = score_font.render(f"SCORE: {score}", True, white)
     screen.blit(score_text, (10, 30))
-    pygame.display.update()
+
 
     # vykreslení všech targetů
     for objekt in targets:
@@ -170,7 +170,7 @@ def hra():
 
 
 def game_over():
-    global running, stav_hry, cas_start, targets, score
+    global running, stav_hry, cas_start, targets, score, target_size
 
     screen.fill(black)
 
@@ -195,6 +195,7 @@ def game_over():
             if back_button.collidepoint(mouse_pos):
                 cas_start = None
                 targets = []
+                target_size = 30
                 score = 0
                 stav_hry = HLAVNI_MENU
                 return
@@ -203,6 +204,7 @@ def game_over():
         if pygame.time.get_ticks() - game_over_delay >= 4000:
             cas_start = None
             targets = []
+            target_size = 30
             score = 0
             stav_hry = HLAVNI_MENU
 
