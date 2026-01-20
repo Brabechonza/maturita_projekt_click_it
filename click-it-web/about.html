@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CLICK IT! — O hře</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="quick">
+        <a class="qbtn" href="index.html">🏠 Home</a>
+        <a class="qbtn" href="about.html">🎮 About</a>
+        <a class="qbtn" href="contact.html">💬 Kontakt</a>
+        <a class="qbtn" href="#" onclick="alert('Brzy přidám: Media / Download / Leaderboard 🙂'); return false;">✨ Extra</a>
+      </div>
+      <div class="status">
+        <span class="pulse"></span>
+        <span>CLICK IT! • pravidla & tipy</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title"><span>CLICK IT!</span></div>
+      </a>
+      <nav class="links">
+        <a data-nav href="index.html">Domů</a>
+        <a data-nav href="about.html">O hře</a>
+        <a data-nav href="contact.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <div class="hero-inner">
+        <h1>O hře <span class="grad">CLICK IT!</span></h1>
+        <p class="subtitle">
+          CLICK IT! je hra postavená na jednoduchém principu: rychle reagovat a trefovat cíle.
+          Čím dál se dostaneš, tím víc se hra zrychluje a “tlačí” na tvoje reflexy.
+          Je to trénink soustředění i nervů — a zároveň ideální hra na rychlý souboj o rekord.
+        </p>
+        <div class="badges">
+          <div class="badge">easy to learn</div>
+          <div class="badge">hard to master</div>
+          <div class="badge">rychlé pokusy</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Ovládání</h2>
+        <ul class="feature-list">
+          <li class="feature">
+            <div class="icon">🖱️</div>
+            <div>
+              <strong>Myš</strong>
+              <small>Klikáš na cíle na obrazovce.</small>
+            </div>
+          </li>
+          <li class="feature">
+            <div class="icon">␣</div>
+            <div>
+              <strong>SPACE</strong>
+              <small>Start/načtení (podle verze). V menu je to “rychlé spouštění”.</small>
+            </div>
+          </li>
+          <li class="feature">
+            <div class="icon">🔊</div>
+            <div>
+              <strong>Audio</strong>
+              <small>Zvuk můžeš vypnout/zapnout. Doporučuju hrát občas bez zvuku na čistý focus.</small>
+            </div>
+          </li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>Tipy na lepší score</h2>
+        <ul class="feature-list">
+          <li class="feature">
+            <div class="icon">👀</div>
+            <div>
+              <strong>Nekoukej na kurzor</strong>
+              <small>Sleduj prostor, kurzor nech “v periferním vidění”.</small>
+            </div>
+          </li>
+          <li class="feature">
+            <div class="icon">🎵</div>
+            <div>
+              <strong>Hraj do rytmu</strong>
+              <small>Když najdeš tempo, zrychlíš bez chyb.</small>
+            </div>
+          </li>
+          <li class="feature">
+            <div class="icon">🧊</div>
+            <div>
+              <strong>Chladná hlava</strong>
+              <small>Když začneš panikařit, děláš miss. Zpomal o 2% a score vyroste.</small>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="card">
+        <h2>Co bude na webu později</h2>
+        <p class="subtitle">
+          Až se bude řešit “víc než web”, přidá se:
+        </p>
+        <ul class="feature-list">
+          <li class="feature"><div class="icon">🏆</div><div><strong>Leaderboard</strong><small>Top hráči + poslední pokusy.</small></div></li>
+          <li class="feature"><div class="icon">🧾</div><div><strong>Changelog</strong><small>Nové verze, opravy, nové módy.</small></div></li>
+          <li class="feature"><div class="icon">📦</div><div><strong>Download</strong><small>Stažení hry + info o verzi.</small></div></li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html">🏠 Zpět domů</a>
+          <a class="btn" href="contact.html">💬 Poslat nápad</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="y"></span> CLICK IT!</div>
+      <div><a href="index.html">Domů</a> • <a href="contact.html">Kontakt</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
