@@ -1,0 +1,110 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.9">
+  <diagram name="Stránka-1" id="VdBMqiJ12dpBiz18nKjl">
+    <mxGraphModel dx="3700" dy="2827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-1" value="Webový prohlížeč" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="-680" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-2" value="Zobrazování nejlepšího skore do tabulky. Možnost registace" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="hZxxTriuPlzh4fbVnvLk-1" vertex="1">
+          <mxGeometry y="30" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-3" value="Python" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="-680" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-4" value="Po stisknutí klávesnice SPACE se hráč dostane do menu kde si bude moct vybrat START a nebo AUDIO(hráč si bude moct vypnout zvuk v pozadí) po stisknutí na START se začnou zobrazovat náhodně&lt;div&gt;objekty např. čtverec. Hráč na ně musí klikat za každý správný klik + jeden bod. Hra bude trvat 30 sekund a postupně se objekty budou zmenšovat.&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="hZxxTriuPlzh4fbVnvLk-3" vertex="1">
+          <mxGeometry y="30" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-5" value="Databáze" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="-330" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-6" value="Ukládání výsledků hráčů,&amp;nbsp;&lt;div&gt;přihlasovací udaje&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="hZxxTriuPlzh4fbVnvLk-5" vertex="1">
+          <mxGeometry x="20" y="70" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-7" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;CLICK IT&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="-820" width="650" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="hZxxTriuPlzh4fbVnvLk-4" target="hZxxTriuPlzh4fbVnvLk-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="-220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="hZxxTriuPlzh4fbVnvLk-2" target="hZxxTriuPlzh4fbVnvLk-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="hZxxTriuPlzh4fbVnvLk-81" target="hZxxTriuPlzh4fbVnvLk-88" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-95" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="hZxxTriuPlzh4fbVnvLk-81" target="hZxxTriuPlzh4fbVnvLk-94" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-81" value="Úvodní obrazovka" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1310" y="-670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-85" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="hZxxTriuPlzh4fbVnvLk-84" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1569.9999999999995" y="-610" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-98" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="hZxxTriuPlzh4fbVnvLk-84" target="hZxxTriuPlzh4fbVnvLk-97" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-84" value="menu" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1510" y="-530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-88" value="space" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1530" y="-680" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-90" value="ano" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1450" y="-670" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-94" value="space(nic se nestane)" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="-680" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-96" value="ne" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1230" y="-660" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-100" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="hZxxTriuPlzh4fbVnvLk-97" target="hZxxTriuPlzh4fbVnvLk-99" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-97" value="start" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1510" y="-390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-108" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="hZxxTriuPlzh4fbVnvLk-99" target="hZxxTriuPlzh4fbVnvLk-107" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-99" value="hra" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1510" y="-250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-101" value="audio" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1310" y="-530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-103" value="lze vypnout zvuk" style="ellipse;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="-540" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-105" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="hZxxTriuPlzh4fbVnvLk-103" target="hZxxTriuPlzh4fbVnvLk-101" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="-440" as="sourcePoint" />
+            <mxPoint x="1000" y="-490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-106" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="hZxxTriuPlzh4fbVnvLk-101" target="hZxxTriuPlzh4fbVnvLk-84" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="-440" as="sourcePoint" />
+            <mxPoint x="1000" y="-490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZxxTriuPlzh4fbVnvLk-107" value="konec" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1510" y="-110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WRd9xa-EdLA4b482gBkF-1" value="&lt;h1 data-start=&quot;146&quot; data-end=&quot;177&quot;&gt;Datové toky&amp;nbsp;&lt;/h1&gt;&lt;br&gt;&lt;h2 data-start=&quot;179&quot; data-end=&quot;204&quot;&gt;1) Spuštění hry → Menu&lt;/h2&gt;&lt;ul data-start=&quot;205&quot; data-end=&quot;375&quot;&gt;&lt;li data-start=&quot;205&quot; data-end=&quot;243&quot;&gt;&lt;p data-start=&quot;207&quot; data-end=&quot;243&quot;&gt;&lt;strong data-start=&quot;207&quot; data-end=&quot;218&quot;&gt;Událost&lt;/strong&gt;: hráč zmáčkne &lt;strong data-start=&quot;233&quot; data-end=&quot;242&quot;&gt;SPACE&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;244&quot; data-end=&quot;327&quot;&gt;&lt;p data-start=&quot;246&quot; data-end=&quot;327&quot;&gt;&lt;strong data-start=&quot;246&quot; data-end=&quot;256&quot;&gt;Pygame&lt;/strong&gt; přepne stav na &lt;code data-start=&quot;272&quot; data-end=&quot;278&quot;&gt;MENU&lt;/code&gt; a vykreslí: &lt;strong data-start=&quot;291&quot; data-end=&quot;304&quot;&gt;CLICK IT!&lt;/strong&gt;, &lt;strong data-start=&quot;306&quot; data-end=&quot;315&quot;&gt;Start a&lt;/strong&gt;&amp;nbsp;&lt;strong data-start=&quot;317&quot; data-end=&quot;326&quot;&gt;Audio&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;328&quot; data-end=&quot;375&quot;&gt;&lt;p data-start=&quot;330&quot; data-end=&quot;375&quot;&gt;&lt;strong data-start=&quot;330&quot; data-end=&quot;338&quot;&gt;Data&lt;/strong&gt;: nic se zatím neukládá.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2 data-start=&quot;377&quot; data-end=&quot;407&quot;&gt;2) Menu → Nastavení (Audio)&lt;/h2&gt;&lt;ul data-start=&quot;408&quot; data-end=&quot;620&quot;&gt;&lt;li data-start=&quot;408&quot; data-end=&quot;458&quot;&gt;&lt;p data-start=&quot;410&quot; data-end=&quot;458&quot;&gt;&lt;strong data-start=&quot;410&quot; data-end=&quot;429&quot;&gt;Klik na „Audio“&lt;/strong&gt; → audio se vypne.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;497&quot; data-end=&quot;573&quot;&gt;&lt;p data-start=&quot;499&quot; data-end=&quot;573&quot;&gt;&lt;strong data-start=&quot;499&quot; data-end=&quot;509&quot;&gt;Pygame&lt;/strong&gt; uloží nastavení do &lt;strong data-start=&quot;529&quot; data-end=&quot;535&quot;&gt;DB&lt;/strong&gt;&amp;nbsp;(pokud bude hráč přihlášený)&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;497&quot; data-end=&quot;573&quot;&gt;&lt;p data-start=&quot;499&quot; data-end=&quot;573&quot;&gt;&lt;strong data-start=&quot;576&quot; data-end=&quot;587&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;Data&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: &lt;/span&gt;&lt;code data-start=&quot;589&quot; data-end=&quot;597&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Pygame&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; → &lt;/span&gt;&lt;code data-start=&quot;600&quot; data-end=&quot;619&quot; style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;SQLite&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2 data-start=&quot;622&quot; data-end=&quot;644&quot;&gt;3) Menu → Start hry&lt;/h2&gt;&lt;ul data-start=&quot;645&quot; data-end=&quot;863&quot;&gt;&lt;li data-start=&quot;645&quot; data-end=&quot;694&quot;&gt;&lt;p data-start=&quot;647&quot; data-end=&quot;694&quot;&gt;&lt;strong data-start=&quot;647&quot; data-end=&quot;666&quot;&gt;Klik na „Start“&lt;/strong&gt; → přepne stav na &lt;code data-start=&quot;687&quot; data-end=&quot;693&quot;&gt;GAME&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;695&quot; data-end=&quot;755&quot;&gt;&lt;p data-start=&quot;697&quot; data-end=&quot;755&quot;&gt;&lt;strong data-start=&quot;697&quot; data-end=&quot;704&quot;&gt;Hra&lt;/strong&gt; běží &lt;strong data-start=&quot;710&quot; data-end=&quot;718&quot;&gt;30 s a&amp;nbsp;&lt;/strong&gt;generují se náhodné objekty (čtverce). Jsou to cíle kam se musí myší zmáčknout&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;756&quot; data-end=&quot;826&quot;&gt;&lt;p data-start=&quot;758&quot; data-end=&quot;826&quot;&gt;&lt;strong data-start=&quot;758&quot; data-end=&quot;773&quot;&gt;Každý zásah&lt;/strong&gt; = +1 bod (počítá se v paměti, tj. proměnná &lt;code data-start=&quot;817&quot; data-end=&quot;824&quot;&gt;score&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;827&quot; data-end=&quot;863&quot;&gt;&lt;p data-start=&quot;829&quot; data-end=&quot;863&quot;&gt;&lt;strong data-start=&quot;829&quot; data-end=&quot;840&quot;&gt;Data&lt;/strong&gt;: tohle ješte ne do DB.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2 data-start=&quot;865&quot; data-end=&quot;899&quot;&gt;4) Konec hry → Uložení výsledku&lt;/h2&gt;&lt;ul data-start=&quot;900&quot; data-end=&quot;1114&quot;&gt;&lt;li data-start=&quot;900&quot; data-end=&quot;1069&quot;&gt;&lt;p data-start=&quot;902&quot; data-end=&quot;945&quot;&gt;Po 30s se výsledek uloží:&lt;/p&gt;&lt;ul data-start=&quot;948&quot; data-end=&quot;1069&quot;&gt;&lt;li data-start=&quot;948&quot; data-end=&quot;1018&quot;&gt;&lt;p data-start=&quot;950&quot; data-end=&quot;1018&quot;&gt;Pokud je &lt;strong data-start=&quot;959&quot; data-end=&quot;978&quot;&gt;hráč přihlášený&lt;/strong&gt; (má &lt;code data-start=&quot;983&quot; data-end=&quot;994&quot;&gt;player_id&lt;/code&gt;), uloží se &lt;code data-start=&quot;1006&quot; data-end=&quot;1017&quot;&gt;player_id&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1021&quot; data-end=&quot;1069&quot;&gt;&lt;p data-start=&quot;1023&quot; data-end=&quot;1069&quot;&gt;Jinak &lt;code data-start=&quot;1029&quot; data-end=&quot;1040&quot;&gt;player_id&lt;/code&gt; může být &lt;code data-start=&quot;1050&quot; data-end=&quot;1056&quot;&gt;NULL&lt;/code&gt; (nepovinné).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li data-start=&quot;1070&quot; data-end=&quot;1114&quot;&gt;&lt;p data-start=&quot;1072&quot; data-end=&quot;1114&quot;&gt;&lt;strong data-start=&quot;1072&quot; data-end=&quot;1083&quot;&gt;Data&lt;/strong&gt;: &lt;code data-start=&quot;1085&quot; data-end=&quot;1093&quot;&gt;Pygame&lt;/code&gt; → &lt;code data-start=&quot;1096&quot; data-end=&quot;1113&quot;&gt;SQLite (scores)&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2 data-start=&quot;1116&quot; data-end=&quot;1147&quot;&gt;5) Webové zobrazení výsledků&lt;/h2&gt;&lt;ul data-start=&quot;1148&quot; data-end=&quot;1271&quot;&gt;&lt;li data-start=&quot;1148&quot; data-end=&quot;1229&quot;&gt;&lt;p data-start=&quot;1150&quot; data-end=&quot;1229&quot;&gt;Web jen &lt;strong data-start=&quot;1184&quot; data-end=&quot;1191&quot;&gt;čte&lt;/strong&gt; z DB a vykreslí tabulku&amp;nbsp; výsledků.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1230&quot; data-end=&quot;1271&quot;&gt;&lt;p data-start=&quot;1232&quot; data-end=&quot;1271&quot;&gt;&lt;strong data-start=&quot;1232&quot; data-end=&quot;1243&quot;&gt;Data&lt;/strong&gt;: &lt;code data-start=&quot;1245&quot; data-end=&quot;1262&quot;&gt;SQLite (scores)&lt;/code&gt; → &lt;code data-start=&quot;1265&quot; data-end=&quot;1270&quot;&gt;Web&lt;/code&gt;.&lt;/p&gt;&lt;br&gt;&lt;/li&gt;&lt;br&gt;&lt;/ul&gt;&lt;br&gt;&lt;blockquote data-start=&quot;1273&quot; data-end=&quot;1464&quot;&gt;&lt;br&gt;&lt;p data-start=&quot;1275&quot; data-end=&quot;1464&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="-70" width="400" height="780" as="geometry" />
+        </mxCell>
+        <mxCell id="WRd9xa-EdLA4b482gBkF-3" value="&lt;h1 data-start=&quot;1471&quot; data-end=&quot;1490&quot;&gt;Databáze (SQLite)&lt;/h1&gt;&lt;h2 data-start=&quot;1492&quot; data-end=&quot;1502&quot;&gt;Tabulky&lt;/h2&gt;&lt;ul data-start=&quot;1677&quot; data-end=&quot;1790&quot;&gt;&lt;li data-start=&quot;1503&quot; data-end=&quot;1561&quot;&gt;&lt;p data-start=&quot;1505&quot; data-end=&quot;1561&quot;&gt;&lt;strong data-start=&quot;1505&quot; data-end=&quot;1516&quot;&gt;players&lt;/strong&gt; – profily hráčů (volitelné, pro přihlášení).&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1562&quot; data-end=&quot;1590&quot;&gt;&lt;p data-start=&quot;1564&quot; data-end=&quot;1590&quot;&gt;&lt;strong data-start=&quot;1564&quot; data-end=&quot;1574&quot;&gt;scores&lt;/strong&gt; – výsledky her.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1591&quot; data-end=&quot;1662&quot;&gt;&lt;p data-start=&quot;1593&quot; data-end=&quot;1662&quot;&gt;&lt;strong data-start=&quot;1593&quot; data-end=&quot;1605&quot;&gt;audio&lt;/strong&gt; – nastavení a uložení audia.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1677&quot; data-end=&quot;1733&quot;&gt;&lt;br&gt;&lt;p data-start=&quot;1679&quot; data-end=&quot;1733&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="-70" width="410" height="260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
