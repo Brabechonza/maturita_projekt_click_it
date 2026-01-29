@@ -1,5 +1,5 @@
 from tkinter.constants import CENTER
-
+from db import save_score
 import pygame
 import random
 
@@ -56,6 +56,10 @@ targets = []
 target_size = 30
 score = 0
 game_over_delay = None
+jmeno_hrace = ""
+psani_jmena = True
+max_delka_jmena = 20
+score_odeslano = False
 
 # Funkce pro kreslení tlačítek
 def draw_button(text, y, color):
@@ -87,11 +91,31 @@ def uvodni_menu():
             pygame.mixer.music.play(-1)
 
 def hlavni_menu():
-    global running, stav_hry, audio_zapnute
+    global running, stav_hry, audio_zapnute, jmeno_hrace, psani_jmena, max_delka_jmena
     screen.fill(black)
     screen.blit(title_text, title_rect)
-    start_button = draw_button("Start", 200, white)
-    audio_button = draw_button("Audio", 270, white)
+
+    jmeno_text = small_font.render("Enter name:", True, white)
+    jmeno_rect = jmeno_text.get_rect(center=(width // 2, 140))
+    screen.blit(jmeno_text, jmeno_rect)
+
+    #input box
+    box_width = 420
+    box_height = 42
+    box_rect = pygame.Rect(0, 0, box_width, box_height )
+    box_rect.center = (width // 2, 190)
+    pygame.draw.rect(screen, gray, box_rect, 2)
+
+    if jmeno_hrace != "":
+        input_surface = small_font.render(jmeno_hrace, True, white)
+        # zarovnání textu do boxu (vlevo, s odsazením)
+        input_rect = input_surface.get_rect(center=box_rect.center)
+        screen.blit(input_surface, input_rect)
+
+
+
+    start_button = draw_button("Start", 250, white)
+    audio_button = draw_button("Audio", 320, white)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -100,13 +124,33 @@ def hlavni_menu():
             # Kliknutí myší na tlačítka
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
+
             if start_button.collidepoint(mouse_pos):
-                stav_hry = HRA
+                if jmeno_hrace != "":
+                    stav_hry = HRA
+
             elif audio_button.collidepoint(mouse_pos):
                 audio()
 
+            if box_rect.collidepoint(mouse_pos):
+                psani_jmena = True
+
+        if event.type == pygame.KEYDOWN and psani_jmena:
+            if event.key == pygame.K_BACKSPACE:
+                jmeno_hrace = jmeno_hrace[:-1]
+
+            else:
+                znak = event.unicode
+
+                # přidávej jen pokud:
+                # - znak není prázdný
+                # - nepřekročíš max délku 20
+                # - je to písmeno/číslo/mezera/_
+                if znak != "" and len(jmeno_hrace) < max_delka_jmena:
+                    if znak.isalnum() or znak in (" ", "_"):
+                        jmeno_hrace += znak
 def hra():
-    global running, stav_hry, cas_start, targets, score, game_over_delay, target_size
+    global running, stav_hry, cas_start, targets, score, game_over_delay, target_size, score_odeslano
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -149,6 +193,7 @@ def hra():
     if zbyvajici_cas == 0:
         stav_hry = GAME_OVER
         game_over_delay = pygame.time.get_ticks()
+        score_odeslano = False
         return
 
     screen.fill(black)
@@ -156,13 +201,17 @@ def hra():
     # čas
     cas_font = pygame.font.SysFont("arialblack", 15)
     cas_text = cas_font.render(f"TIME: {zbyvajici_cas}", True, white)
-    screen.blit(cas_text, (10, 10))
+    screen.blit(cas_text, (10, 30))
 
     #score
     score_font = pygame.font.SysFont("arialblack", 15)
     score_text = score_font.render(f"SCORE: {score}", True, white)
-    screen.blit(score_text, (10, 30))
+    screen.blit(score_text, (10, 50))
 
+    #jmeno
+    jmeno_font = pygame.font.SysFont("arialblack", 15)
+    jmeno_text = jmeno_font.render(f"PLAYER: {jmeno_hrace}", True, white)
+    screen.blit(jmeno_text, (10, 10))
 
     # vykreslení všech targetů
     for objekt in targets:
@@ -170,7 +219,7 @@ def hra():
 
 
 def game_over():
-    global running, stav_hry, cas_start, targets, score, target_size
+    global running, stav_hry, cas_start, targets, score, target_size, score_odeslano
 
     screen.fill(black)
 
@@ -184,6 +233,10 @@ def game_over():
     screen.blit(score_text, score_rect)
 
     back_button = draw_button("BACK", height //2 + 130, white)
+
+    if not score_odeslano:
+        save_score(jmeno_hrace, score)
+        score_odeslano = True
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
