@@ -1,3 +1,22 @@
+<?php
+// připojení k databázi
+$servername = "dbs.spskladno.cz";
+$username   = "student14";
+$password   = "spsnet";
+$database   = "vyuka14";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// kontrola připojení
+if ($conn->connect_error) {
+    die("Connection failed");
+}
+
+// SQL dotaz
+$sql = "SELECT name, score FROM scores ORDER BY score DESC";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -38,19 +57,44 @@
 		</header>
 
 		<main class="hlavni">
-			<div class="container">
+			<div class="container_leaderboard">
 				<div class="ramec">
-					<div class="ramec-obsah">
-  						<h1 class="Vitej-ve-hre">Kontakt</h1>
-    						<p>Máš dotaz, nápad nebo problém se hrou? Ozvi se.</p>
-    						<p>📧 <span>clickit.game@gmail.cz</span></p>
-    						<p>💬 <span>Discord: ClickIt#1234</span></p>
-    						<p>🌐 <span>github.com/Brabechonza</span></p>
+					<div class="ramec-obsah leaderboard">
+							<h1>Leaderboard<br>🏆</h1>
+	  						<table>
+							    <tr>
+							    	
+							    </td>
+							    	<th>Position</th>
+							        <th>Name</th>
+							        <th>Score</th>
+							    </tr>
+
+							    <?php
+							     $poradi = 1;
+							     if ($result->num_rows > 0) {
+							        while ($row = $result->fetch_assoc()) {
+							            echo "<tr>";
+										echo "<td>" . $poradi . "</td>";
+										echo "<td>" . $row["name"] . "</td>";
+										echo "<td>" . $row["score"] . "</td>";
+										echo "</tr>";
+										$poradi++;
+							        }
+							    } else {
+							        echo "<tr><td colspan='2'>No data</td></tr>";
+							    }
+
+							    $conn->close();
+							    ?>
+
+							</table>
+						
 					</div>
 				</div>
-			</div>	
-			
+			</div>
 		</main>
+
 
 		<footer class="footer">
 			<div class="container">

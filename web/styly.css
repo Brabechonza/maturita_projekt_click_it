@@ -1,8 +1,9 @@
 html, body {
-	height: 100%;  /* 100% vyska prohlizece*/
-	margin: 0px; /* odstraneni okraje prohlizece*/
-	box-sizing: border-box;  /*meni pocitani velikosti prvku */
+  height: 100%;  /* 100% vyska prohlizece*/
+  margin: 0px; /* odstraneni okraje prohlizece*/
+  box-sizing: border-box;  /*meni pocitani velikosti prvku */
   scrollbar-gutter: stable; /*misto pro scrollbar aby se stranka nehybala*/
+
 } 
 
 body {
@@ -11,10 +12,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
 } 
 
 main {
-  flex: 1;
+  flex: 1; /*zabere vsechnen volny prostor ktery zbyde, funguje jen tehdy kdyz je display:flex */
 }
 
 .container { /*zarovnani obsahu */
@@ -28,6 +30,14 @@ main {
   margin: 0 auto; /*centrovani na stred, 0= nahore, dole zadna mezera,auto vlevo/vpravo automaticky*/
   padding: 0px 16px; /*vnitrni odsazeni, 0=nahorea dole, 16px vlevo vpravo*/
 } 
+
+.container_leaderboard {
+  max-width: 400px;
+  margin: 0 auto; /*centrovani na stred, 0= nahore, dole zadna mezera,auto vlevo/vpravo automaticky*/
+  padding: 0px 16px; /*vnitrni odsazeni, 0=nahorea dole, 16px vlevo vpravo*/
+} 
+
+
 
 .hlava {}
 
@@ -154,7 +164,6 @@ main {
   text-align: right;
 }
 
-
 .ramec {
  background:
   linear-gradient(
@@ -177,6 +186,7 @@ main {
   margin-bottom: 32px;
 }
 
+
 .ramec-obsah {
   max-width: 680px;
   font-weight: 500;
@@ -187,6 +197,7 @@ main {
   font-weight: 800;
 
 }
+
 
 .ramec-obsah p {
   max-width: 680px;
@@ -255,4 +266,33 @@ main {
   color: white;
   font-weight: 700;
   font-size: 20px;
+}
+
+
+/* vsechno co je v tabulce uprosted */
+.ramec-obsah.leaderboard{
+  display: flex; /* udela z tabulky blok aby se dal zarovnat*/
+  flex-direction: column; /* tohle rekne aby prvky se radili pod sebe, taky nezbytne nutny */
+  align-items: center; /* centrování tabulky anadpisu */
+  text-align: center;  /* centrování textu */
+}
+ 
+
+/* */
+.ramec-obsah.leaderboard table{ /*tabulka uprosted prvku */
+  margin: 5px auto;
+  border-collapse: collapse; /*spoji okraje bunek do jedne cary */
+  background: rgba(0,0,0,0.3);
+}
+
+.ramec-obsah.leaderboard th,
+.ramec-obsah.leaderboard td{  /* text neni nalepeny na okraji */
+  border: 2px solid rgba(255,255,255,0.25);
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.ramec-obsah.leaderboard th { /* hlavicka tabulky*/
+  background: rgba(128, 128, 128, 0.8);
+  font-weight: 800;
 }
