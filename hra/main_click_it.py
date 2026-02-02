@@ -1,5 +1,5 @@
 from tkinter.constants import CENTER
-from db import save_score
+from db import save_game
 import pygame
 import random
 
@@ -60,11 +60,15 @@ jmeno_hrace = ""
 psani_jmena = True
 max_delka_jmena = 20
 score_odeslano = False
+mode_30s = 30
+mode_2min = 120
+vybrany_cas = mode_30s  # default
+vybrany_mode_id = 1 #30s
 
 # Funkce pro kreslení tlačítek
-def draw_button(text, y, color):
+def draw_button(text,x, y, color):
     button_text = menu_font.render(text, True, color)
-    button_rect = button_text.get_rect(center=(width//2, y))
+    button_rect = button_text.get_rect(center=(x, y))
     screen.blit(button_text, button_rect)
     return button_rect
 
@@ -91,13 +95,17 @@ def uvodni_menu():
             pygame.mixer.music.play(-1)
 
 def hlavni_menu():
-    global running, stav_hry, audio_zapnute, jmeno_hrace, psani_jmena, max_delka_jmena
+    global running, stav_hry, audio_zapnute, jmeno_hrace, psani_jmena, max_delka_jmena, vybrany_cas, odpocet_cas, cas_start, vybrany_mode_id
     screen.fill(black)
     screen.blit(title_text, title_rect)
 
     jmeno_text = small_font.render("Enter name:", True, white)
     jmeno_rect = jmeno_text.get_rect(center=(width // 2, 140))
     screen.blit(jmeno_text, jmeno_rect)
+
+    barva_30 = white if vybrany_cas == mode_30s else gray
+    barva_120 = white if vybrany_cas == mode_2min else gray
+    barva_audio = white if audio_zapnute == True else gray
 
     #input box
     box_width = 420
@@ -112,10 +120,11 @@ def hlavni_menu():
         input_rect = input_surface.get_rect(center=box_rect.center)
         screen.blit(input_surface, input_rect)
 
+    mode30_button = draw_button("30s", width // 2 - 150, 240, barva_30)
+    mode2min_button = draw_button("2min", width // 2 + 150, 240, barva_120)
 
-
-    start_button = draw_button("Start", 250, white)
-    audio_button = draw_button("Audio", 320, white)
+    start_button = draw_button("Start", width // 2, 280, white)
+    audio_button = draw_button("Audio", width // 2, 340, barva_audio)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -125,15 +134,27 @@ def hlavni_menu():
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
 
-            if start_button.collidepoint(mouse_pos):
+            if box_rect.collidepoint(mouse_pos):
+                psani_jmena = True
+            else:
+                psani_jmena = False
+
+            if mode30_button.collidepoint(mouse_pos):
+                vybrany_cas = mode_30s
+                vybrany_mode_id = 1
+
+            if mode2min_button.collidepoint(mouse_pos):
+                vybrany_cas = mode_2min
+                vybrany_mode_id = 2
+
+            elif start_button.collidepoint(mouse_pos):
                 if jmeno_hrace != "":
+                    odpocet_cas = vybrany_cas
+                    cas_start = None
                     stav_hry = HRA
 
             elif audio_button.collidepoint(mouse_pos):
                 audio()
-
-            if box_rect.collidepoint(mouse_pos):
-                psani_jmena = True
 
         if event.type == pygame.KEYDOWN and psani_jmena:
             if event.key == pygame.K_BACKSPACE:
@@ -232,10 +253,10 @@ def game_over():
     score_rect = score_text.get_rect(center=(width // 2, height // 2 + 50))
     screen.blit(score_text, score_rect)
 
-    back_button = draw_button("BACK", height //2 + 130, white)
+    back_button = draw_button("BACK", width//2, height //2 + 130, white)
 
     if not score_odeslano:
-        save_score(jmeno_hrace, score)
+        save_game(jmeno_hrace, vybrany_mode_id, score)
         score_odeslano = True
 
     for event in pygame.event.get():
