@@ -1,38 +1,38 @@
-html, body {
-  height: 100%;  /* 100% vyska prohlizece*/
-  margin: 0px; /* odstraneni okraje prohlizece*/
+html, body {    /*cely dokument*/
+  height: 100%;  /* 100% vyska okna prohlizece*/
+  margin: 0px; /* odstraneni okraje prohlizece, ktere jsou automaticky pridany*/
   box-sizing: border-box;  /*meni pocitani velikosti prvku */
   scrollbar-gutter: stable; /*misto pro scrollbar aby se stranka nehybala*/
 
 } 
 
 body {
-  background: linear-gradient(150deg, #1b1440, #0b0f1f, #1f2937);
-  font-family: Inter, Poppins, Montserrat, Arial, sans-serif; 
+  background: linear-gradient(150deg, #1b1440, #0b0f1f, #1f2937); /*barevny prechod*/
+  font-family: Inter, Poppins, Montserrat, Arial, sans-serif;  
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: flex; /*umozni zarovnavat, centrovat,.. podle velikosti obrazovky*/
+  flex-direction: column;  /*prvky pod sebou*/
   
 } 
 
 main {
-  flex: 1; /*zabere vsechnen volny prostor ktery zbyde, funguje jen tehdy kdyz je display:flex */
+  flex: 1; /*zabere vsechnen volny prostor ktery zbyde, footer zustane dole na strance, funguje jen tehdy kdyz je display:flex */
 }
 
 .container { /*zarovnani obsahu */
   max-width: 1200px;
-  margin: 0 auto; /*centrovani na stred, 0= nahore, dole zadna mezera,auto vlevo/vpravo automaticky*/
+  margin: 0 auto; /*centrovani na stred, 0= nahore, dole zadna mezera,auto stejna mezera vlevo/vpravo automaticky*/
   padding: 0px 16px; /*vnitrni odsazeni, 0=nahorea dole, 16px vlevo vpravo*/
 }
 
 .container2 {
   max-width: 1200px;
-  margin: 0 auto; /*centrovani na stred, 0= nahore, dole zadna mezera,auto vlevo/vpravo automaticky*/
-  padding: 0px 16px; /*vnitrni odsazeni, 0=nahorea dole, 16px vlevo vpravo*/
+  margin: 0 auto; /* vnejsi mezera kolem prvku, oddaluje prvek od ostatnich, centrovani na stred, 0= nahore, dole zadna mezera,auto vlevo/vpravo automaticky*/
+  padding: 0px 16px; /*vnitrni mezera,odsazeni, zvetsuje klikaci oblast, 0=nahore a dole, 16px vlevo vpravo*/
 } 
 
 .container_leaderboard {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto; /*centrovani na stred, 0= nahore, dole zadna mezera,auto vlevo/vpravo automaticky*/
   padding: 0px 16px; /*vnitrni odsazeni, 0=nahorea dole, 16px vlevo vpravo*/
 } 
@@ -42,25 +42,25 @@ main {
 .hlava {}
 
 .navigace { /*cely horni pruh*/
-  padding: 10px 0px; /*upravuje vysku listy*/
+  padding: 10px 0px; /*upravuje vysku listy, 0= vlevo a vpravo*/
   background: linear-gradient(120deg, #1b1440, #0b0f1f, #1f2937);
   border-bottom: 1px solid rgba(255,255,255,0.10); /*cara pod navigaci*/
 }
 
 .nav-list { /* styling seznamu  */
   list-style: none; /*odstraneni tecek pred polozkami*/
-  margin: 0;
-  padding: 0;
+  margin: 0;  /*zrusi mezery od prohlizece*/
+  padding: 0; /*zrusi mezery od prohlizece*/
 
   display: flex; /*da polozky do radku*/
-  justify-content: center; /*vycentruje polozky do prosted listy*/
+  justify-content: center; /*vycentruje polozky doprosted listy*/
   gap: 12px; /*mezera mezi tlacitky*/
   flex-wrap: wrap; /*kdyz je malo mista menu se zalomi na dalsi radek*/
 }
 
 .nav-link { /*tlacitka v navigaci*/
-  display: inline-flex; /*inline se chova jak text a fles zarovnava obsah, ikona + text vedle sebe */
-  align-items: center; /*obsah uvnitr tlacitka svisle na stred */
+  display: inline-flex; /*inline se chova jak text a flex zarovnava obsah, ikona + text vedle sebe */
+  align-items: center; /*ikona + text jsou svisle vycentrovane, obsah uvnitr tlacitka svisle na stred */
   gap: 8px; /* mezera mezi ikonou a textem */
   padding: 10px 20px;  /*vnitrni prostor tlacitka, 10px nahore dole,20px vlevo vpravo*/
   border-radius: 999px;  /*maximalni zaoblenost tlacitka */
@@ -72,7 +72,7 @@ main {
 
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.18); /*ramecek kolem tlacitka*/
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);  /*stín*/
 }
 
 
@@ -87,25 +87,24 @@ main {
   justify-content: center; /*zarovnani vlevo,vpravo na stred*/
   width: 20px;
   height: 20px;
-  border-radius: 6px;
+  border-radius: 6px; /*lehce zaoblene hrany*/
   background: rgba(0,0,0,0.25);
 }
 
 .logo-bar {
   background: linear-gradient(140deg, #1b1440, #0b0f1f, #1a2937);
 
-  border-top: 1px solid rgba(255,255,255,0.12);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  padding: 15px 0;
+  border-top: 1px solid rgba(255,255,255,0.12); /*cara nahore*/
+  border-bottom: 1px solid rgba(255,255,255,0.12); /*cara dole*/
+  padding: 15px 0; /*15= vyska pruhu, 0= vlevo, vpravo*/
 }
 
-/* LOGO (ikonka + text) */
+/* logo (ikonka + text) */
 .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-
-  text-decoration: none;
+  display: inline-flex; /*text v radku*/
+  align-items: center; /*vycentrovani ikony a textu vodorovne*/
+  gap: 12px; /*mezera mezi ikonou a textem*/
+  text-decoration: none; /*odstraneni podtrzeni odkazu*/
 }
 
 
@@ -131,9 +130,9 @@ main {
   );
 
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+  color: transparent; /*pozadi se orizne do tvaru pismen a vzknikne gradientovany text*/
 
   text-shadow: 0 0 10px rgba(56,189,248,0.25);
 }
@@ -149,22 +148,22 @@ main {
 
 }
 
-.footer-text {
-  margin: 5;
+.footer-text { /*paticka stranky vlevo*/
+  margin: 5px;
   color: rgba(255,255,255,0.50);
   font-size: 14px;
   font-weight: 500;
 }
 
-.footer-text2 {
-  margin: 5;
+.footer-text2 { /*paticka stranky vpravo*/
+  margin: 5px;
   color: rgba(255,255,255,0.50);
   font-size: 14px;
   font-weight: 500;
   text-align: right;
 }
 
-.ramec {
+.ramec { /* hlavni obsahova karta */
  background:
   linear-gradient(
     150deg,
@@ -183,12 +182,12 @@ main {
   padding: 24px;
   color: white;
   
-  margin-bottom: 32px;
+  margin-bottom: 32px; /*mezera pod kartou*/
 }
 
 
-.ramec-obsah {
-  max-width: 680px;
+.ramec-obsah { /*rika jak ma text vypadat v karte*/
+  max-width: 680px; /*omezuje sirku radku*/
   font-weight: 500;
 
 }
@@ -219,8 +218,8 @@ main {
   font-size: 18px;
 }
 
-.CLICK-IT {
-  margin-left: 10px;
+.CLICK-IT { /*barevny gradientovany text*/
+  margin-left: 10px; /*mala mezera zleva aby text nebyl nalepeny na predchozi slovo*/
   background: linear-gradient(
     90deg,
     #38bdf8,
@@ -233,9 +232,9 @@ main {
   -webkit-text-fill-color: transparent;
 }
 
-.okno {
-  padding: 14px 16px;
-  margin-top: 12px;
+.okno { /*maly obsahovy box uvnitr ramce (motivy)*/
+  padding: 14px 16px; /*text neni nalepeny na krajich*/
+  margin-top: 12px; /*oddeli okno od obsahu nad nim*/
 
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
@@ -243,10 +242,10 @@ main {
 }
 
 
-.okno-link {
-  display: block;          /* aby šel kliknout celý rámeček */
+.okno-link {  /*klikaci obal*/
+  display: block;          /* aby šlo kliknout na celý rámeček a ne jen text */
   text-decoration: none;   /* žádné podtržení */
-  color: inherit;          /* zachová barvy textu */
+  color: inherit;          /* zachová barvu textu z tridy .okno*/
 }
 
 .okno-link:hover {
@@ -257,11 +256,12 @@ main {
 
 .logo-bar .container{
   display: flex;
-  align-items: center;          /* svislé zarovnání = “výš” */
-  justify-content: space-between; /* logo vlevo, leaderboard vpravo */
+  align-items: center;          /* svislé zarovnání obsahu, logo a text ve stejne vysce */
+  justify-content: space-between; /* roztahne obsah na okraj logo vlevo, leaderboard vpravo */
 }
 
-.leaderboard{
+.leaderboard{ /*styluje odkaz 🏆 Leaderboard */
+
   text-decoration: none;
   color: white;
   font-weight: 700;
@@ -285,8 +285,8 @@ main {
   background: rgba(0,0,0,0.3);
 }
 
-.ramec-obsah.leaderboard th,
-.ramec-obsah.leaderboard td{  /* text neni nalepeny na okraji */
+.ramec-obsah.leaderboard th, /*th hlavicka tabulky*/
+.ramec-obsah.leaderboard td{  /* td bezna bunka,text neni nalepeny na okraji */
   border: 2px solid rgba(255,255,255,0.25);
   padding: 8px 14px;
   text-align: center;
@@ -296,3 +296,5 @@ main {
   background: rgba(128, 128, 128, 0.8);
   font-weight: 800;
 }
+
+

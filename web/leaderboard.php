@@ -1,19 +1,23 @@
 <?php
-// připojení k databázi
 $servername = "dbs.spskladno.cz";
 $username   = "student14";
 $password   = "spsnet";
 $database   = "vyuka14";
 
 $conn = new mysqli($servername, $username, $password, $database);
+if ($conn->connect_error) { die("DB error"); }
 
-// kontrola připojení
-if ($conn->connect_error) {
-    die("Connection failed");
-}
-
-// SQL dotaz
-$sql = "SELECT name, score FROM scores ORDER BY score DESC";
+$sql = "
+SELECT
+  p.username AS name,
+  m.mode_name AS mode,
+  g.score AS score
+FROM games g
+JOIN players p ON p.player_id = g.player_id
+JOIN modes   m ON m.mode_id   = g.mode_id
+ORDER BY g.score DESC
+LIMIT 50
+";
 $result = $conn->query($sql);
 ?>
 
@@ -55,41 +59,38 @@ $result = $conn->query($sql);
 			</div>
 
 		</header>
-
+v
 		<main class="hlavni">
 			<div class="container_leaderboard">
 				<div class="ramec">
 					<div class="ramec-obsah leaderboard">
 							<h1>Leaderboard<br>🏆</h1>
-	  						<table>
-							    <tr>
-							    	
-							    </td>
-							    	<th>Position</th>
-							        <th>Name</th>
-							        <th>Score</th>
+						    <table>
+						      <tr>
+							   		 <th>Position</th>
+							   		 <th>Name</th>
+							   		 <th>Mode</th>
+							   		 <th>Score</th> 	
 							    </tr>
-
+							  
 							    <?php
-							     $poradi = 1;
-							     if ($result->num_rows > 0) {
-							        while ($row = $result->fetch_assoc()) {
-							            echo "<tr>";
-										echo "<td>" . $poradi . "</td>";
-										echo "<td>" . $row["name"] . "</td>";
-										echo "<td>" . $row["score"] . "</td>";
-										echo "</tr>";
-										$poradi++;
-							        }
-							    } else {
-							        echo "<tr><td colspan='2'>No data</td></tr>";
-							    }
+								$pos = 1;
+								if ($result && $result->num_rows > 0) {
+								  while ($row = $result->fetch_assoc()) {
+								    echo "<tr>";
+								    echo "<td>" . $pos++ . "</td>";
+								    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+								    echo "<td>" . htmlspecialchars($row["mode"]) . "</td>";
+								    echo "<td>" . (int)$row["score"] . "</td>";
+								    echo "</tr>";
+								  }
+								} else {
+								  echo "<tr><td colspan='4'>No data</td></tr>";
+								}
+								$conn->close();
+								?>
 
-							    $conn->close();
-							    ?>
-
-							</table>
-						
+								</table>
 					</div>
 				</div>
 			</div>
