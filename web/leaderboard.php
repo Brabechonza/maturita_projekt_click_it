@@ -1,4 +1,5 @@
 <?php
+require "auth.php";
 $servername = "dbs.spskladno.cz";
 $username   = "student14";
 $password   = "spsnet";
@@ -42,7 +43,8 @@ $result = $conn->query($sql);
 					<ul class="nav-list"> <!-- seznam polozek navigace, home...-->
 						 <li><a class="nav-link" href="index.html"><span class="nav-icon">🏠</span>Home</a></li>
           				 <li><a class="nav-link" href="about.html"><span class="nav-icon">🎮</span>About</a></li>
-				         <li><a class="nav-link" href="contact.html"><span class="nav-icon">💬</span>Contact</a></li>   
+				         <li><a class="nav-link" href="contact.html"><span class="nav-icon">💬</span>Contact</a></li>
+				         <li><a class="nav-link" href="popis.html"><span class="nav-icon">📖</span>Seznam</a></li>     
 					</ul>
 				</div>
 			</nav>
@@ -74,6 +76,11 @@ v
 							    </tr>
 							  
 							    <?php
+							    if (is_admin()): ?>
+									  <a class="nav-link" href="admin.php">Admin panel</a>
+									<?php else: ?>
+									  <a class="nav-link" href="login.php">Admin login</a>
+									<?php endif;
 								$pos = 1;
 								if ($result && $result->num_rows > 0) {
 								  while ($row = $result->fetch_assoc()) {
