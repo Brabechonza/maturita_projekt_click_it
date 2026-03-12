@@ -55,11 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update_id"])) { // po
 }
 
  // SQL dotaz pro načtení seznamu her a hráčů
-$sql = "  
-SELECT p.player_id, p.username -- vybere ID hráče a jeho jméno z tabulky players
-FROM games g -- vybere tabulku games, pocet radku se odviji od toho kolik tam bude her
-JOIN players p ON p.player_id = g.player_id -- ke každé hře připojí hráče podle shodného player_id, ziskame jmeno hrace ke konkretni hre
-ORDER BY g.player_id ASC -- seřadí výsledky podle ID hráče vzestupně (od nejmenšího)
+$sql = "
+SELECT player_id, username
+FROM players
+ORDER BY player_id ASC
 LIMIT 50
 ";
 $res = $conn->query($sql); // spustí SELECT a uloží výsledky do $res
