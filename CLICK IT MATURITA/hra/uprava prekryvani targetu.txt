@@ -1,0 +1,29 @@
+if score in (15, 25, 35):  # pokud je skóre 15 nebo 25 nebo 35 → přidáme nový target
+    while True:  # nekonečná smyčka – bude zkoušet nové pozice, dokud nenajde správnou
+        x_new = random.randint(0, width - target_size) 
+        y_new = random.randint(60, height - target_size)
+        novy = pygame.Rect(x_new, y_new, target_size, target_size)  # vytvoří nový obdélník (target) na dané pozici
+        
+        prekryti = False  
+        # předpokládáme, že se nový target zatím nepřekrývá
+
+        for t in targets:  
+            # projdeme všechny existující targety
+
+            if novy.colliderect(t):  
+                # zkontrolujeme, zda se nový target překrývá s nějakým existujícím
+
+                prekryti = True  
+                # pokud ano, nastavíme příznak překrytí
+
+                break  
+                # ukončíme for smyčku (nemusíme kontrolovat další targety)
+
+        if not prekryti:  
+            # pokud se nový target s žádným nepřekrývá
+
+            targets.append(novy)  
+            # přidáme nový target do seznamu targetů
+
+            break  
+            # ukončíme while smyčku, protože jsme našli správnou pozici
