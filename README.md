@@ -2,4 +2,7 @@
 2) Pro spuštění hry je nutné nainstalovat sadu knihoven (jsou k dohledání na webové stránce v záložce Algorithms úplně dole)
 3) Pokud máte nainstalováno a chcete zapnout CLICK IT postup je následující: otevřít pycharm a v něm otevřít složku CLICK IT MATURITA, dále HRA a vybrat main_click_it.py
 4) Hra se spustí, zadejte jméno a můžete hrát
+
+5) Na web se lze přihlásit jako admin a to pomocí jména admin a hesla 1234
+6) Databáze je školní a je pod uživatelským jménem student14
    
