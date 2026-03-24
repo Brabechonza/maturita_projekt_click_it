@@ -209,6 +209,10 @@ def hra():
                         y_new = random.randint(60, height - target_size)  # náhodná Y pozice
                         targets.append(pygame.Rect(x_new, y_new, target_size, target_size)) # přidá nový target
 
+                    if score in (25):
+                        x_new = random.randint(0, width - target_size)  # náhodná X pozice
+                        y_new = random.randint(60, height - target_size)
+                        targets.append(pygame.Triangle(x_new, y_new, target_size, target_size))  # přidá nový target
                     # Přesun zasaženého targetu na nové místo
                     x = random.randint(0, width - target_size)
                     y = random.randint(60, height - target_size)

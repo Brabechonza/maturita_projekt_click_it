@@ -23,13 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_id"])) { // po
   $id = (int)$_POST["delete_id"]; // převede na int (aby tam nebyl bordel / text)
  
   // 1) smaže všechny hry (score záznamy) daného hráče
-  $stmt1 = $conn->prepare("DELETE FROM games WHERE player_id = ?");
+  $stmt1 = $conn->prepare("DELETE FROM JB_games WHERE player_id = ?");
   $stmt1->bind_param("i", $id);
   $stmt1->execute();
   $stmt1->close();
  
   // 2) smaže samotného hráče
-  $stmt2 = $conn->prepare("DELETE FROM players WHERE player_id = ?");
+  $stmt2 = $conn->prepare("DELETE FROM JB_players WHERE player_id = ?");
   $stmt2->bind_param("i", $id);
   $stmt2->execute();
   $stmt2->close();
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update_id"])) { // po
   $new_username = trim($_POST["new_username"] ?? ""); // vezme new_username z formuláře, odstraní mezery, když není -> dá ""
 
   if ($id > 0 && $new_username !== "") { // kontrola že id je ok a jméno není prázdné
-    $stmt = $conn->prepare("UPDATE players SET username = ? WHERE player_id = ?"); // připravený UPDATE dotaz
+    $stmt = $conn->prepare("UPDATE JB_players SET username = ? WHERE player_id = ?"); // připravený UPDATE dotaz
     $stmt->bind_param("si", $new_username, $id);
     $stmt->execute();     // provede update
     $stmt->close();
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update_id"])) { // po
  // SQL dotaz pro načtení seznamu her a hráčů
 $sql = "
 SELECT player_id, username
-FROM players
+FROM JB_players
 ORDER BY player_id ASC
 LIMIT 50
 ";

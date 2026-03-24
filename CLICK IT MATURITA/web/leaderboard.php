@@ -10,12 +10,12 @@ if ($conn->connect_error) { die("DB error"); } // Když se nepřipojí, skript s
 
 $sql = "
 SELECT -- jmena v tabulce se zobrazi vicekrat, jedno jmeno muze mit vice her 
-  p.username AS name, -- vezme username z tabulky players a pojmenuje ho jako 'name'
-  m.mode_name AS mode, -- vezme název módu z tabulky modes a pojmenuje ho jako 'mode'
-  g.score AS score -- vezme skóre z tabulky games
-FROM games g -- hlavní tabulka games
-JOIN players p ON p.player_id = g.player_id -- propojí hráče podle player_id
-JOIN modes   m ON m.mode_id   = g.mode_id -- propojí mód podle mode_id
+  p.username AS name, -- vezme username z tabulky JB_players a pojmenuje ho jako 'name'
+  m.mode_name AS mode, -- vezme název módu z tabulky JB_modes a pojmenuje ho jako 'mode'
+  g.score AS score -- vezme skóre z tabulky JB_games
+FROM JB_games g -- hlavní tabulka JB_games
+JOIN JB_players p ON p.player_id = g.player_id -- propojí hráče podle player_id
+JOIN JB_modes   m ON m.mode_id   = g.mode_id -- propojí mód podle mode_id
 ORDER BY g.score DESC -- seřadí od největšího skóre po nejmenší, desc = sestupne
 LIMIT 50 -- vezme jen top 50 záznamů
 ";

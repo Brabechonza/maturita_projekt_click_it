@@ -25,29 +25,29 @@ def get_or_create_player_id(username: str) -> int:  # funkce: vezme username a v
         cur = conn.cursor() # cursor je objekt, přes který posíláš SQL dotazy a čteš výsledky
 
         #hledani existujícího hráče se stejným jménem
-        cur.execute("SELECT player_id FROM players WHERE username=%s ORDER BY player_id DESC LIMIT 1", (username,)) # execute pošle SQL dotaz do databáze
+        cur.execute("SELECT player_id FROM JB_players WHERE username=%s ORDER BY player_id DESC LIMIT 1", (username,)) # execute pošle SQL dotaz do databáze
         row = cur.fetchone() # parametry dotazu: %s se nahradí hodnotou username (bezpečně, ne ručně stringem)
         if row:  # pokud dotaz něco našel
             return int(row[0]) # row[0] je player_id, vrátí se jako int a funkce končí
 
         #jinak založ nového
-        cur.execute("INSERT INTO players (username) VALUES (%s)", (username,))  # pokud hráč neexistuje, provede se INSERT
+        cur.execute("INSERT INTO JB_players (username) VALUES (%s)", (username,))  # pokud hráč neexistuje, provede se INSERT
         conn.commit()  # commit potvrdí změny (INSERT) v databázi
         return int(cur.lastrowid)   # lastrowid = id právě vloženého hráče; vrátí se jako player_id
 
     finally: # finally proběhne vždy (i když nahoře return nebo chyba)
         conn.close() # zavře DB připojení
 
-def save_game(username: str, mode_id: int, score: int) -> None:  # uloží jeden výsledek hry do tabulky games
+def save_game(username: str, mode_id: int, score: int) -> None:  # uloží jeden výsledek hry do tabulky JB_games
     player_id = get_or_create_player_id(username)  # získá player_id: buď existuje, nebo se vytvoří nový hráč
 
-    conn = get_conn() # nové připojení do DB (zvlášť pro insert do games)
+    conn = get_conn() # nové připojení do DB (zvlášť pro insert do JB_games)
     try:
         cur = conn.cursor() # cursor na provádění SQL
-        cur.execute(  # INSERT do games = uloží výsledek konkrétní hry
-            "INSERT INTO games (player_id, mode_id, score, player_at) VALUES (%s, %s, %s, NOW())", # NOW() = aktuální čas na DB serveru
+        cur.execute(  # INSERT do JB_games = uloží výsledek konkrétní hry
+            "INSERT INTO JB_games (player_id, mode_id, score, player_at) VALUES (%s, %s, %s, NOW())", # NOW() = aktuální čas na DB serveru
             (player_id, int(mode_id), int(score)), # parametry dotazu: uloží player_id + mode_id + score; int()
         )
-        conn.commit()  # commit potvrdí insert (uloží řádek do games)
+        conn.commit()  # commit potvrdí insert (uloží řádek do JB_games)
     finally:
         conn.close()  # vždy zavře DB připojení
