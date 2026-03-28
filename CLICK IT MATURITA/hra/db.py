@@ -48,6 +48,12 @@ def save_game(username: str, mode_id: int, score: int) -> None:  # uloží jeden
             "INSERT INTO JB_games (player_id, mode_id, score, player_at) VALUES (%s, %s, %s, NOW())", # NOW() = aktuální čas na DB serveru
             (player_id, int(mode_id), int(score)), # parametry dotazu: uloží player_id + mode_id + score; int()
         )
+
+        cur.execute(
+            "INSERT IGNORE INTO JB_player_modes (player_id, mode_id) VALUES (%s, %s)",
+            (player_id, int(mode_id))
+        )
+
         conn.commit()  # commit potvrdí insert (uloží řádek do JB_games)
     finally:
         conn.close()  # vždy zavře DB připojení

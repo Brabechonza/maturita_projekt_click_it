@@ -3,12 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2026 at 12:59 PM
+-- Generation Time: Mar 28, 2026 at 09:35 PM
 -- Server version: 10.5.25-MariaDB
 -- PHP Version: 8.2.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,26 +30,22 @@ USE `vyuka14`;
 --
 
 DROP TABLE IF EXISTS `JB_games`;
-CREATE TABLE IF NOT EXISTS `JB_games` (
-  `game_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `JB_games` (
+  `game_id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
   `mode_id` int(11) NOT NULL,
   `score` int(11) NOT NULL,
-  `player_at` date NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`game_id`),
-  KEY `player_id` (`player_id`),
-  KEY `mode_id` (`mode_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `player_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `JB_games`
 --
 
 INSERT INTO `JB_games` (`game_id`, `player_id`, `mode_id`, `score`, `player_at`) VALUES
-(6, 6, 1, 41, '2026-02-03'),
-(9, 8, 1, 48, '2026-02-10'),
-(10, 9, 1, 51, '2026-02-10'),
-(12, 11, 1, 50, '2026-02-12');
+(12, 11, 1, 50, '2026-02-12'),
+(17, 14, 1, 49, '2026-02-18'),
+(34, 28, 1, 41, '2026-03-26');
 
 -- --------------------------------------------------------
 
@@ -57,11 +54,10 @@ INSERT INTO `JB_games` (`game_id`, `player_id`, `mode_id`, `score`, `player_at`)
 --
 
 DROP TABLE IF EXISTS `JB_modes`;
-CREATE TABLE IF NOT EXISTS `JB_modes` (
-  `mode_id` int(11) NOT NULL AUTO_INCREMENT,
-  `mode_name` varchar(20) NOT NULL,
-  PRIMARY KEY (`mode_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE `JB_modes` (
+  `mode_id` int(11) NOT NULL,
+  `mode_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `JB_modes`
@@ -78,22 +74,94 @@ INSERT INTO `JB_modes` (`mode_id`, `mode_name`) VALUES
 --
 
 DROP TABLE IF EXISTS `JB_players`;
-CREATE TABLE IF NOT EXISTS `JB_players` (
-  `player_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  PRIMARY KEY (`player_id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `JB_players` (
+  `player_id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `JB_players`
 --
 
 INSERT INTO `JB_players` (`player_id`, `username`) VALUES
-(8, 'ahoj'),
-(11, 'cauy'),
-(6, 'cus bus autobus'),
-(9, 'honzaa');
+(11, 'baf'),
+(28, 'eliska'),
+(14, 'honzaa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `JB_player_modes`
+--
+
+DROP TABLE IF EXISTS `JB_player_modes`;
+CREATE TABLE `JB_player_modes` (
+  `player_id` int(11) NOT NULL,
+  `mode_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+--
+-- Dumping data for table `JB_player_modes`
+--
+
+INSERT INTO `JB_player_modes` (`player_id`, `mode_id`) VALUES
+(11, 1),
+(14, 1),
+(28, 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `JB_games`
+--
+ALTER TABLE `JB_games`
+  ADD PRIMARY KEY (`game_id`),
+  ADD KEY `player_id` (`player_id`),
+  ADD KEY `mode_id` (`mode_id`);
+
+--
+-- Indexes for table `JB_modes`
+--
+ALTER TABLE `JB_modes`
+  ADD PRIMARY KEY (`mode_id`);
+
+--
+-- Indexes for table `JB_players`
+--
+ALTER TABLE `JB_players`
+  ADD PRIMARY KEY (`player_id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `JB_player_modes`
+--
+ALTER TABLE `JB_player_modes`
+  ADD PRIMARY KEY (`player_id`,`mode_id`),
+  ADD KEY `fk_pm_mode` (`mode_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `JB_games`
+--
+ALTER TABLE `JB_games`
+  MODIFY `game_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `JB_modes`
+--
+ALTER TABLE `JB_modes`
+  MODIFY `mode_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `JB_players`
+--
+ALTER TABLE `JB_players`
+  MODIFY `player_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
@@ -105,6 +173,13 @@ INSERT INTO `JB_players` (`player_id`, `username`) VALUES
 ALTER TABLE `JB_games`
   ADD CONSTRAINT `JB_games_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `JB_players` (`player_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `JB_games_ibfk_2` FOREIGN KEY (`mode_id`) REFERENCES `JB_modes` (`mode_id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `JB_player_modes`
+--
+ALTER TABLE `JB_player_modes`
+  ADD CONSTRAINT `fk_pm_mode` FOREIGN KEY (`mode_id`) REFERENCES `JB_modes` (`mode_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_pm_player` FOREIGN KEY (`player_id`) REFERENCES `JB_players` (`player_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
